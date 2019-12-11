@@ -18,7 +18,15 @@ pipeline {
         CI = 'true'
       }
       steps {
-        sh 'echo "Test stage"'
+        sh 'echo "Test stage, and the env CI value : $CI"'
+      }
+    }
+
+    stage('Deliver ') {
+      steps {
+        sh 'echo "Deliver"'
+        input(message: 'Finished using the web site? (Click "Proceed" to continue)', id: 'inputValue', ok: 'Process')
+        sh 'echo "kill"'
       }
     }
 
