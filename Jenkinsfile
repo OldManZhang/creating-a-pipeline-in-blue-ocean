@@ -14,9 +14,6 @@ pipeline {
     }
 
     stage('Test') {
-      environment {
-        CI = 'true'
-      }
       steps {
         sh 'echo "Test stage, and the env CI value : $CI"'
       }
